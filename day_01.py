@@ -41,7 +41,12 @@ def convert_to_list_of_lists(contents: list[str]) -> list[list[int]]:
     return result
 
 
+def convert_to_list_of_sums(contents: list[list[int]]) -> list[int]:
+    return [sum(x) for x in contents]
+
+
 if __name__ == '__main__':
     file_contents = read_file()
     list_of_list = convert_to_list_of_lists(file_contents)
-    print(list_of_list)
+    list_of_sums = convert_to_list_of_sums(list_of_list)
+    print(max(list_of_sums))
