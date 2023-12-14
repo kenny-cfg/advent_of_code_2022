@@ -12,4 +12,22 @@ they'd like to know how many Calories are being carried by the Elf carrying the 
 In the example above, this is 24000 (carried by the fourth Elf).
 
 Find the Elf carrying the most Calories. How many total Calories is that Elf carrying?
+
+
+Break down into tasks:
+* Read the file line by line
+* Convert that list of lines into list[list[int]]
+* Convert each of the lists into the sum of the component lists
+* Get the maximum of that list and return
 """
+
+
+def read_file() -> list[str]:
+    with open("puzzle_input/day_01.txt", "r") as source_file:
+        source_contents = source_file.readlines()
+        return [x.strip() for x in source_contents]
+
+
+if __name__ == '__main__':
+    file_contents = read_file()
+    print(file_contents)
