@@ -28,6 +28,20 @@ def read_file() -> list[str]:
         return [x.strip() for x in source_contents]
 
 
+def convert_to_list_of_lists(contents: list[str]) -> list[list[int]]:
+    result = []
+    current_list = []
+    for content_line in contents:
+        if content_line == '':
+            result.append(current_list)
+            current_list = []
+        else:
+            current_list.append(int(content_line))
+    result.append(current_list)
+    return result
+
+
 if __name__ == '__main__':
     file_contents = read_file()
-    print(file_contents)
+    list_of_list = convert_to_list_of_lists(file_contents)
+    print(list_of_list)
